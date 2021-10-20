@@ -1,9 +1,11 @@
-compile: count.o list.o main.o
-	mkdir ./bin
+compile: setup count.o list.o main.o
 	gcc ./obj/main.o ./obj/count.o ./obj/list.o -o ./bin/hola
 
-count.o: ./src/count.c
+setup:
 	mkdir ./obj
+	mkdir ./bin
+
+count.o: ./src/count.c
 	gcc -c ./src/count.c -o ./obj/count.o
 
 list.o: ./src/list.c

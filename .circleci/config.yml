@@ -2,18 +2,18 @@ version: 2
 
 jobs:
     build:
-	docker:
-        - image: ubuntu
-    steps:
-        - checkout
-        - run:
-            name: apt-get
-            command: apt-get update && apt-get -y install autoconf-archive automake-1.15 autoconf2.64 build-essential check
-        - run:
-            name: build
-            command: make compile
-        - run:
-            name: test
-            command: make test
-    - store_artifacts:
-        path: /DEPLOY-{CURRENT_DATE}
+    	docker:
+            - image: ubuntu
+        steps:
+            - checkout
+            - run:
+                name: apt-get
+                command: apt-get update && apt-get -y install autoconf-archive automake-1.15 autoconf2.64 build-essential check
+            - run:
+                name: build
+                command: make compile
+            - run:
+                name: test
+                command: make test
+        - store_artifacts:
+            path: /DEPLOY-{CURRENT_DATE}

@@ -2,7 +2,8 @@ version: 2
 
 jobs:
     build:
-        docker:
+        working_directory: /DEPLOY-{CURRENT_DATE}
+	docker:
             - image: ubuntu
         steps:
             - checkout
@@ -15,3 +16,5 @@ jobs:
             - run:
                 name: test
                 command: make test
+	    - store_artifacts:
+	        path: /DEPLOY-{CURRENT_DATE}

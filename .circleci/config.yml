@@ -2,9 +2,9 @@ version: 2
 
 jobs:
     build:
-        working_directory: /DEPLOY-{CURRENT_DATE}
+    working_directory: /DEPLOY-{CURRENT_DATE}
 	docker:
-            - image: ubuntu
+        - image: ubuntu
         steps:
             - checkout
             - run:

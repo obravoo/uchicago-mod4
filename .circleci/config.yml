@@ -16,9 +16,10 @@ jobs:
             - run:
                 name: "implementation"
                 command: |
+                    mkdir mv ~/deploy
                     CURRENT_DATE=$(date +%Y-%m-%d)
-                    mv ~/devops/bin ~/DEPLOY-$CURRENT_DATE
+                    mv ~/devops/bin ~/deploy/DEPLOY-$CURRENT_DATE
             - run:
                 name: "list folder"
                 command: |
-                    ls -lh ~/DEPLOY*
+                    ls -lh ~/deploy/

@@ -23,3 +23,5 @@ jobs:
                 name: "list folder"
                 command: |
                     ls -lh ~/deploy/
+            - store_test_results:
+              path: test-results

@@ -4,7 +4,7 @@ jobs:
     build:
         docker:
             - image: ubuntu
-        working_directory: /DEPLOY-{{CURRENT_DATE}}
+        working_directory: ~/devops
         steps:
             - checkout
             - run:
@@ -13,5 +13,8 @@ jobs:
             - run:
                 name: build
                 command: make compile
-            - store_artifacts:
-                path:  /DEPLOY-{{CURRENT_DATE}}
+            - run:
+                name: move
+                command: |
+                    CURRENT_DATE=$(date +%Y-%m-%d)
+                    mv ~/devops/bin ~/DEPLOY-$CURRENT_DATE

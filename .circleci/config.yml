@@ -4,7 +4,7 @@ jobs:
     build:
         docker:
             - image: ubuntu
-        working_directory: /DEPLOY-{CURRENT_DATE}
+        working_directory: /DEPLOY-{{CURRENT_DATE}}
         steps:
             - checkout
             - run:
@@ -14,4 +14,4 @@ jobs:
                 name: build
                 command: make compile
             - store_artifacts:
-                path:  /DEPLOY-{CURRENT_DATE}
+                path:  /DEPLOY-{{CURRENT_DATE}}
